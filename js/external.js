@@ -5,6 +5,4 @@ function getComputerChoice() {
 }
 console.log(getComputerChoice())
 
-function roundOne () {
-    let playerSelection = prompt('Rock, Paper, or Scissor?');
-}
+let playerChoice = prompt("Rock, Paper, or Scissor?", "");
