@@ -1,0 +1,18 @@
+.btn {
+    height: 200px;
+    width: 200px;
+    background-color: rgb(227, 227, 174);
+    color: purple;
+    font-size: larger;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    
+}
+
+.results {
+    text-align: center;
+    font-size: 30px;
+}
