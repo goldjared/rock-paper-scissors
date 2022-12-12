@@ -4,15 +4,13 @@
     background-color: rgb(227, 227, 174);
     color: purple;
     font-size: larger;
+    border-radius: 25px;
+    
 }
 
 .button-container {
     display: flex;
     justify-content: center;
+    gap: 10px;
     
-}
-
-.results {
-    text-align: center;
-    font-size: 30px;
 }
