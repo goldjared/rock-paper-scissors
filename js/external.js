@@ -3,53 +3,38 @@ function getComputerChoice() {
     return computerOptions[Math.floor(Math.random() * computerOptions.length)];
 }
 
-//console.log(getComputerChoice());
-/*let result;
-let container = document.querySelector('#container');
 let buttons = document.querySelectorAll('.btn');
+let playerPoints = 0;
+let cpuPoints = 0;
+let result = document.querySelector('.result');
+let score = document.querySelector('.score');
 buttons.forEach(function (button) {
     button.addEventListener('click', function() {
-            console.log(button.value);
             let playerSelection = button.value;
             let computerSelection = getComputerChoice();
-            (playRound(playerSelection, computerSelection));
-            const content = document.createElement('div');
-            content.classList.add('content');
-            content.textContent = `${result}`;
-            container.appendChild(content);
-
-
-            //console.log(playRound(playerSelection, computerSelection));
-            
-
-    });
-  }); */
-//https://www.codeinwp.com/snippets/add-event-listener-to-multiple-elements-with-javascript/
-
-let buttons = document.querySelectorAll('.btn');
-buttons.forEach(function (button) {
-    button.addEventListener('click', function() {
-            //console.log('player selection is', button.value);
-            let playerSelection = button.value;
-            let computerSelection = getComputerChoice();
-            //console.log('computerSelection is', computerSelection)
-            //console.log(playRound(playerSelection, computerSelection));
             let roundResult = playRound(playerSelection, computerSelection);
-            //playRound(playerSelection, computerSelection); not needed?
-            const resultContainer = document.querySelector('#container');
-            const results = document.createElement('div');
-            results.classList.add('results');
-            results.textContent = `Player: ${playerSelection}, CPU: ${computerSelection},
+            result.textContent = `Player: ${playerSelection} CPU: ${computerSelection}
             RESULT: ${roundResult}`.toUpperCase();
-            resultContainer.appendChild(results);
-            results.style.color = 'red';
+            game(roundResult);
         });
     });
 
- 
+function game(roundResult) {
+    if (roundResult === 'Win!') {
+        playerPoints += 1;
+    } else if (roundResult === 'Loss') {
+        cpuPoints += 1;
+    }
+    const score = document.querySelector('.score');
+    score.textContent = `Player: ${playerPoints} CPU: ${cpuPoints}`;
+    if (playerPoints === 5 || cpuPoints === 5) { 
+        document.querySelectorAll('input').forEach(element => element.disabled = true);//disables all buttons
+    }
+    if (playerPoints === 5) {
+        //left off
+    }
 
-
-
+}
 
 
 
