@@ -19,7 +19,9 @@ buttons.forEach(function (button) {
         });
     });
 
-function game(roundResult) {
+function game(roundResult, result) {
+    let gameTitle = document.querySelector('.title');
+    const container = document.querySelector('.container');
     if (roundResult === 'Win!') {
         playerPoints += 1;
     } else if (roundResult === 'Loss') {
@@ -28,10 +30,22 @@ function game(roundResult) {
     const score = document.querySelector('.score');
     score.textContent = `Player: ${playerPoints} CPU: ${cpuPoints}`;
     if (playerPoints === 5 || cpuPoints === 5) { 
-        document.querySelectorAll('input').forEach(element => element.disabled = true);//disables all buttons
+        document.querySelectorAll('.btn').forEach(element => element.disabled = true);//disables all buttons
+        const resetButton = document.createElement('INPUT');
+        resetButton.setAttribute('type', 'button');
+        resetButton.setAttribute('value', 'Reset');
+        resetButton.classList.add('resetButton');
+        document.body.appendChild(resetButton);
+        resetButton.addEventListener('click', function() {
+            location.reload();
+        })
     }
     if (playerPoints === 5) {
-        //left off
+        gameTitle.textContent = `YOU BEAT THE CPU. In ${cpuPoints + playerPoints} rounds...`;
+        gameTitle.style.cssText = 'color: green; font-size: 33px;';
+    } else if (cpuPoints === 5) {
+        gameTitle.textContent = `YOU WERE DEFEATED BY THE CPU. In ${cpuPoints + playerPoints} rounds...`;
+        gameTitle.style.cssText = 'color: red; font-size: 16px;';
     }
 
 }
