@@ -19,7 +19,7 @@ buttons.forEach(function (button) {
         });
     });
 
-function game(roundResult, result) {
+function game(roundResult) {
     let gameTitle = document.querySelector('.title');
     const container = document.querySelector('.container');
     if (roundResult === 'Win!') {
@@ -35,7 +35,9 @@ function game(roundResult, result) {
         resetButton.setAttribute('type', 'button');
         resetButton.setAttribute('value', 'Reset');
         resetButton.classList.add('resetButton');
-        document.body.appendChild(resetButton);
+        container.appendChild(resetButton);
+        console.log(container);
+        console.log(resetButton);
         resetButton.addEventListener('click', function() {
             location.reload();
         })
