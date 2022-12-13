@@ -36,8 +36,6 @@ function game(roundResult) {
         resetButton.setAttribute('value', 'Reset');
         resetButton.classList.add('resetButton');
         container.appendChild(resetButton);
-        console.log(container);
-        console.log(resetButton);
         resetButton.addEventListener('click', function() {
             location.reload();
         })
